@@ -1,7 +1,10 @@
 package com.georges.views;
 
+import com.georges.utils.ScannerUtil;
+
 public class MainMenu implements View {
 
+	
 	private void printInterface() {
 		System.out.println();
 		System.out.println("---------- PRIME NUMBER GENERATOR ----------");
@@ -15,7 +18,7 @@ public class MainMenu implements View {
 		printInterface();
 		
 		// This scanner is looking for a single integer input.
-		int userInput = 0;
+		int userInput = ScannerUtil.getInput(1);
 		
 		switch(userInput) {
 			case 0:
