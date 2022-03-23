@@ -42,10 +42,10 @@ public class ServiceTest {
 		assertEquals(Arrays.asList(7901, 7907, 7919), service.generate(7900, 7920));
 	}
 	
-	@Test
-	public void generatePerformanceTest() {
-		System.out.println(service.generate(0, 10000));
-		//assertEquals(Arrays.asList(0, 1, 2, 3, 5, 7), service.generate(0, 10));
-		assertTrue(true);
-	}
+//	@Test
+//	public void generatePerformanceTest() {
+//		System.out.println(service.generate(0, 10000));
+//		//assertEquals(Arrays.asList(0, 1, 2, 3, 5, 7), service.generate(0, 10));
+//		assertTrue(true);
+//	}
 }
