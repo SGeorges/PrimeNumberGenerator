@@ -16,6 +16,7 @@ public class ScannerUtilTest {
 		ByteArrayInputStream in = new ByteArrayInputStream("TEST".getBytes());
 		System.setIn(in);
 		
+		System.out.println(scanner.getStringInput());
 		assertEquals("TRUE", scanner.getStringInput());
 	}
 	
