@@ -4,38 +4,35 @@ import com.georges.utils.ScannerUtil;
 
 public class InsertMenu implements View {
 
+	private Integer numOne;
+	private Integer numTwo;
+	
 	private void printInterface() {
 		System.out.println();
 		System.out.println("Please insert a range of numbers (number1-number2)");
 	}
 	
 	public boolean acceptableInput(String userInput) {
-		Integer numOne;
-		Integer numTwo;
+
 		
 		if (userInput.contains("-")) {
 			// Initial checker of - location and isEmpty.
-			if (userInput.indexOf("-") == 0 || userInput.isEmpty()) return false;
-			
-			// Secondary checker to make sure there's only one "-"
-			if (userInput.indexOf("-") == 0 || userInput.isEmpty()) return false;
+			if (userInput.indexOf("-") == 0 || userInput.indexOf("-") == userInput.length() - 1) return false;
 			
 			// Validate only one "-"
 			if (userInput.indexOf("-") != userInput.lastIndexOf("-")) return false;
 		
 			// Try/Catch for Numbers that are too large to be an integer. 
 			try {
-				numOne = Integer.valueOf(userInput.substring(0, userInput.indexOf("-")));
-				System.out.println(numOne);
-				numTwo = Integer.valueOf(userInput.substring(userInput.indexOf("-")+1));
-				System.out.println(numTwo);
+				this.numOne = Integer.valueOf(userInput.substring(0, userInput.indexOf("-")));
+				this.numTwo = Integer.valueOf(userInput.substring(userInput.indexOf("-")+1));
 			} 
 			catch (Exception e) {
-				System.out.println("Number is too large.");
+				charChecker(userInput);
 				return false;
 			}
 			
-			return charChecker(userInput);
+			return true;
 			
 		} else return false;
 	}
@@ -45,7 +42,10 @@ public class InsertMenu implements View {
 		
 		for(char i : userInput.toCharArray()) {
 			if (acceptableValues.contains(String.valueOf(i))) {}
-				else return false;
+				else {
+					System.out.println("The following character is not allowed : " + i);
+					return false;
+				}
 		}
 		
 		return true;
@@ -62,7 +62,12 @@ public class InsertMenu implements View {
 		if (acceptableInput(userInput)) {
 			// If conditional logic good perform service
 			// Output Service
-		} else return new InsertMenu();
+			System.out.println("Number 1 : " + numOne);
+			System.out.println("Number 2 : " + numTwo);
+		} else {
+			System.out.println("Input unacceptable. Please re-enter.");
+			return new InsertMenu();
+		}
 		
 		
 		
