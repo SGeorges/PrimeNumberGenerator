@@ -1,11 +1,14 @@
 package com.georges.views;
 
+import com.georges.services.Service;
 import com.georges.utils.ScannerUtil;
 
 public class InsertMenu implements View {
 
 	private Integer numOne;
 	private Integer numTwo;
+	
+	private Service service = new Service();
 	
 	private void printInterface() {
 		System.out.println();
@@ -64,6 +67,7 @@ public class InsertMenu implements View {
 			// Output Service
 			System.out.println("Number 1 : " + numOne);
 			System.out.println("Number 2 : " + numTwo);
+			System.out.println(service.generate(numOne, numTwo));
 		} else {
 			System.out.println("Input unacceptable. Please re-enter.");
 			return new InsertMenu();
