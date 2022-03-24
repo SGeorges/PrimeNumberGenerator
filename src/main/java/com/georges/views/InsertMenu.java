@@ -65,8 +65,6 @@ public class InsertMenu implements View {
 		if (acceptableInput(userInput)) {
 			// If conditional logic good perform service
 			// Output Service
-			System.out.println("Number 1 : " + numOne);
-			System.out.println("Number 2 : " + numTwo);
 			System.out.println(service.generate(numOne, numTwo));
 		} else {
 			System.out.println("Input unacceptable. Please re-enter.");
