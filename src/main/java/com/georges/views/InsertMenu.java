@@ -10,7 +10,8 @@ public class InsertMenu implements View {
 	}
 	
 	public boolean acceptableInput(String userInput) {
-		int dashIndex; 
+		Integer numOne;
+		Integer numTwo;
 		
 		if (userInput.contains("-")) {
 			// Initial checker of - location and isEmpty.
@@ -22,8 +23,19 @@ public class InsertMenu implements View {
 			// Validate only one "-"
 			if (userInput.indexOf("-") != userInput.lastIndexOf("-")) return false;
 		
-			return charChecker(userInput);
+			// Try/Catch for Numbers that are too large to be an integer. 
+			try {
+				numOne = Integer.valueOf(userInput.substring(0, userInput.indexOf("-")));
+				System.out.println(numOne);
+				numTwo = Integer.valueOf(userInput.substring(userInput.indexOf("-")+1));
+				System.out.println(numTwo);
+			} 
+			catch (Exception e) {
+				System.out.println("Number is too large.");
+				return false;
+			}
 			
+			return charChecker(userInput);
 			
 		} else return false;
 	}
